@@ -1,0 +1,11 @@
+supervisor_version: 3.0
+supervisor_virtualenv: '~/.virtualenvs/supervisor'
+supervisor_home: '{{ supervisor_virtualenv }}/etc/supervisor'
+supervisor_config: '{{ supervisor_home }}/supervisord.conf'
+supervisord_path: '{{ supervisor_virtualenv }}/bin/supervisord'
+supervisorctl_path: '{{ supervisor_virtualenv }}/bin/supervisorctl'
+supervisor_socket_id: '{{ ansible_user_id }}'
+
+alias_file: '~/.bashrc'
+
+super_args: 'supervisorctl_path={{ supervisorctl_path }} config={{ supervisor_config }}'

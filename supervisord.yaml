@@ -1,0 +1,7 @@
+- name: install supervisord
+
+  hosts: local
+  connection: local
+
+  roles:
+    - supervisord

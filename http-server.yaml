@@ -6,7 +6,7 @@
 
   roles:
     - role: supervise
-      name: http
+      name: http-server
       chdir: ~/public
       command: python -m SimpleHTTPServer {{ port }}
 

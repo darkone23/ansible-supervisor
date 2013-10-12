@@ -1,0 +1,15 @@
+- hosts: local
+  connection: local
+
+  vars:
+    port: 1234
+
+  roles:
+    - role: supervise
+      name: http
+      chdir: ~/public
+      command: python -m SimpleHTTPServer {{ port }}
+
+  tasks:
+    - shell: curl localhost:{{ port }}
+      changed_when: False

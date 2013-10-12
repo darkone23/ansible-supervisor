@@ -1,0 +1,18 @@
+{# supervisor configuration template for standalone jars
+   required parameters (ansible vars that must be present):
+     - name             | project name
+     - command          | command to start app
+   optional:
+     - chdir            | project home
+     - log_dir          | log home
+     - app_env          | project environment variables                                 #}
+[program:{{ name }}]
+command={{ command|replace("~", "%(ENV_HOME)s") }}
+directory={{ chdir|replace("~", "%(ENV_HOME)s") }}
+
+stdout_logfile={{ log_dir|replace("~", "%(ENV_HOME)s") }}/{{ name }}.out.log
+stderr_logfile={{ log_dir|replace("~", "%(ENV_HOME)s") }}/{{ name }}.err.log
+
+{% if app_env|length > 0 %}
+environment={% for name, var in app_env.iteritems() %}{{ name|upper }}="{{ var|replace('~', '%(ENV_HOME)s') }}"{% if not loop.last %},{% endif%}{% endfor %}
+{% endif %}

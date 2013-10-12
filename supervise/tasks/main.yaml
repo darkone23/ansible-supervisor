@@ -1,0 +1,14 @@
+- name: ensuring directories for {{ name }}
+  file: path={{ item }} state=directory
+  with_items:
+    - '{{ app_home }}'
+    - '{{ log_dir }}'
+    - '{{ chdir }}'
+
+- name: installing config for {{ name }}
+  template: src=app.ini.j2
+            dest={{ supervisor_home }}/conf.d/{{ name }}.ini
+  register: app_template
+
+- name: starting {{ name }}
+  supervisorctl: name={{ name }} state=present {{ super_args }}

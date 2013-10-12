@@ -3,9 +3,12 @@
        version={{ supervisor_version }}
        virtualenv={{ supervisor_virtualenv }}
 
-- name: ensuring configuration directories
-  file: path={{ supervisor_home }}/conf.d
+- name: ensuring supervisor directories
+  file: path={{ supervisor_home }}/{{ item }}
         state=directory
+  with_items:
+    - conf.d
+    - logs
 
 - name: installing supervisor configuration
   template: src=supervisord.conf.j2

@@ -1,4 +1,6 @@
 app_home: ~/apps/{{ name }}
 log_dir: '{{ supervisor_home }}/logs'
 chdir: '{{ app_home }}'
+extra_dirs: []
+app_dirs: '{{ [app_home, log_dir, chdir] + extra_dirs }}'
 app_env: {}

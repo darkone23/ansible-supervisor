@@ -9,3 +9,5 @@ supervisor_socket_id: '{{ ansible_user_id }}'
 alias_file: '~/.bashrc'
 
 super_args: 'supervisorctl_path={{ supervisorctl_path }} config={{ supervisor_config }}'
+
+pip_args: off

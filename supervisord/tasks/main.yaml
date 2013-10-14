@@ -1,7 +1,8 @@
-- name: installing supervisor...........
+- name: installing supervisor
   pip: name=supervisor
        version={{ supervisor_version }}
        virtualenv={{ supervisor_virtualenv }}
+       {% if pip_args %} extra_args={{ pip_args }} {% endif %}
 
 - name: ensuring supervisor directories
   file: path={{ supervisor_home }}/{{ item }}

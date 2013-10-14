@@ -13,6 +13,8 @@ directory={{ chdir|replace("~", "%(ENV_HOME)s") }}
 stdout_logfile={{ log_dir|replace("~", "%(ENV_HOME)s") }}/{{ name }}.out.log
 stderr_logfile={{ log_dir|replace("~", "%(ENV_HOME)s") }}/{{ name }}.err.log
 
+autostart={% if autostart %}true{% else %}false{% endif %}
+
 {% if app_env|length > 0 %}
 environment={% for name, var in app_env.iteritems() %}{{ name|upper }}="{{ var|replace('~', '%(ENV_HOME)s') }}"{% if not loop.last %},{% endif%}{% endfor %}
 {% endif %}

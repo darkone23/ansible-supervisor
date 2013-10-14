@@ -4,3 +4,4 @@ chdir: '{{ app_home }}'
 extra_dirs: []
 app_dirs: '{{ [app_home, log_dir, chdir] + extra_dirs }}'
 app_env: {}
+autostart: yes

@@ -16,7 +16,7 @@ Just check out this repository and add the checkout location to your [roles_path
 ## Usage:
 
     roles:
-      - name: supervisor
+      - role: supervisor
         supervisor_home: ~/apps/supervisor
 
 This will ensure a supervisor daemon is installed and running in the context you run the role in.

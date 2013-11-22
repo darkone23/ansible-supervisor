@@ -1,6 +1,6 @@
 This repository is an [ansible](http://ansibleworks.com) role for installing a supervisor daemon, with a focus on being simple & usable without root.
 
-Because of this it installs the supervisor utility into a virtualenv instead of into the systems python like many system packages do. Hopefully in the future this will be a configurable feature.
+Because of this it installs the supervisor utility into a virtualenv instead of into the systems python like many system packages do. Hopefully in the future this will be [configurable](https://github.com/eggsby/ansible-supervisor/blob/master/TODO.md)
 
 ## Requirements:
 

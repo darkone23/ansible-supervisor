@@ -17,6 +17,7 @@
 
 - name: running supervisord
   shell: creates={{ supervisor_home }}/supervisord.pid
+         chdir={{ supervisor_home }}
          {{ supervisord_path }} -c {{ supervisor_config }}
 
 - name: installing supervisor aliases

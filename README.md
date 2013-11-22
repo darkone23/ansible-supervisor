@@ -25,9 +25,7 @@ It provides `{{ super_args }}` for use interacting with the supervisorctl ansibl
 
     supervisorctl: name=webserver state=restarted {{ super_args }}
 
-Or use the convenient [supervise](https://github.com/eggsby/ansible-supervise) role to install & supervise your daemons.
-
-See [supervisord](http://supervisord.org/) and the ansible [supervisorctl module](http://www.ansibleworks.com/docs/modules.html#supervisorctl) for more information.
+Or use the convenient [supervise](https://github.com/eggsby/ansible-supervise) role to install & supervise your daemons. See the [example project](https://github.com/eggsby/ansible-supervisor-example) for an complete demonstration.
 
 ## Configuration
 
@@ -35,9 +33,9 @@ You can control where supervisor installs, what version it installs, who it inst
 
 It installs shell aliases for accessing the supervisor using `supervisorctl -c path-to.conf` -- you can control this using `alias_file`
 
-Or you can just let the defaults do their thing.
+Or you can just let the [defaults](https://github.com/eggsby/ansible-supervisor/blob/master/defaults/main.yaml) do their thing.
 
-  * [supervisord defaults](https://github.com/eggsby/ansible-supervisor/blob/master/defaults/main.yaml)
+ See [supervisord](http://supervisord.org/) and the ansible [supervisorctl module](http://www.ansibleworks.com/docs/modules.html#supervisorctl) for more information.
 
 [TODO.md](https://github.com/eggsby/ansible-supervisor/blob/master/TODO.md)
 

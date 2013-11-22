@@ -25,6 +25,8 @@ It provides `{{ super_args }}` for use interacting with the supervisorctl ansibl
 
     supervisorctl: name=webserver state=restarted {{ super_args }}
 
+Or use the convenient [supervise](https://github.com/eggsby/ansible-supervise) role to install & supervise your daemons.
+
 See [supervisord](http://supervisord.org/) and the ansible [supervisorctl module](http://www.ansibleworks.com/docs/modules.html#supervisorctl) for more information.
 
 ## Configuration
@@ -36,5 +38,7 @@ It installs shell aliases for accessing the supervisor using `supervisorctl -c p
 Or you can just let the defaults do their thing.
 
   * [supervisord defaults](https://github.com/eggsby/ansible-supervisor/blob/master/defaults/main.yaml)
+
+[TODO.md](https://github.com/eggsby/ansible-supervisor/blob/master/TODO.md)
 
 Enjoy

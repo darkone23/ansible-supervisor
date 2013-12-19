@@ -24,5 +24,4 @@ galaxy_info:
   categories:
   - monitoring
   - web
-dependencies:
-  
+dependencies: []

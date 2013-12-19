@@ -101,6 +101,7 @@ galaxy_info:
   - services
   #- web
 # dependencies:
+dependencies: []
   # List your role dependencies here, one per line. Only
   # dependencies available via galaxy should be listed here.
   

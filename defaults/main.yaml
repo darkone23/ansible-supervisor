@@ -6,8 +6,19 @@ supervisord_path: '{{ supervisor_virtualenv }}/bin/supervisord'
 supervisorctl_path: '{{ supervisor_virtualenv }}/bin/supervisorctl'
 supervisor_socket_id: '{{ ansible_user_id }}'
 
-alias_file: '~/.bashrc'
+bin_dir: ~/bin
+
+# supervisor_link: ~/path/to/symlink
+
+supervisor_http: off
+supervisor_http_host: 0.0.0.0
+supervisor_http_port: 9001
+
+supervisor_http_auth: off
+# supervisor_http_auth:
+#   username: foo
+#   password: bar
+
+pip_args: off # --index-url=http://my.custom.pypi/"
 
 super_args: 'supervisorctl_path={{ supervisorctl_path }} config={{ supervisor_config }}'
-
-pip_args: off

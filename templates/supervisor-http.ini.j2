@@ -1,0 +1,7 @@
+[inet_http_server]
+port={{ supervisor_http_host }}:{{ supervisor_http_port }}
+
+{% if supervisor_http_auth and supervisor_http_password %}
+username={{ supervisor_http_auth.username }}
+password={{ supervisor_http_auth.password }}
+{% endif %}

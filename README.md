@@ -11,12 +11,12 @@ You can use `{{ pip_args }}` if you have special pip set-up, like an in-house py
 ## Installation:
 Just check out this repository and add the checkout location to your [roles_path](http://www.ansibleworks.com/docs/intro_configuration.html#roles-path) in your ansible.cfg
 
-    git clone https://github.com/eggsby/ansible-supervisor supervisor/
+    ansible-galaxy install eggsby.supervisor 
 
 ## Usage:
 
     roles:
-      - role: supervisor
+      - role: eggsby.supervisor
         supervisor_home: ~/apps/supervisor
 
 This will ensure a supervisor daemon is installed and running in the context you run the role in.
@@ -31,7 +31,7 @@ Or use the convenient [supervise](https://github.com/eggsby/ansible-supervise) r
 
 You can control where supervisor installs, what version it installs, who it installs as, and any special installation options.
 
-It installs shell aliases for accessing the supervisor using `supervisorctl -c path-to.conf` -- you can control this using `alias_file`
+It installs shell scripts for accessing the supervisor using `supervisorctl -c path-to.conf` -- you can control the path using `bin_dir`
 
 Or you can just let the [defaults](https://github.com/eggsby/ansible-supervisor/blob/master/defaults/main.yaml) do their thing.
 

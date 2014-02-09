@@ -2,7 +2,7 @@
 ; http://supervisord.org/configuration.html
 
 [unix_http_server]
-file=/tmp/{{ supervisor_socket_id }}-supervisord.sock
+file=%(here)s/{{ supervisor_socket_id }}.sock
 
 [supervisord]
 logfile=%(here)s/supervisord.log
@@ -12,7 +12,7 @@ pidfile=%(here)s/supervisord.pid
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [supervisorctl]
-serverurl=unix:///tmp/{{ supervisor_socket_id }}-supervisord.sock
+serverurl=unix://%(here)s/{{ supervisor_socket_id }}.sock
 
 [include]
 files = conf.d/*.ini

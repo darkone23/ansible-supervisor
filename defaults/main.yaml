@@ -8,7 +8,8 @@ supervisor_socket_id: '{{ ansible_user_id }}'
 
 bin_dir: ~/bin
 
-# supervisor_link: ~/path/to/symlink
+supervisor_link: off # ~/path/to/symlink
+supervisor_link_parent: "{% if supervisor_link %}{{ supervisor_link|dirname }}{% endif %}"
 
 supervisor_http: off
 supervisor_http_host: 0.0.0.0

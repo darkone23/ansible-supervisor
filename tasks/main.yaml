@@ -12,7 +12,6 @@
     - '{{ bin_dir }}'
     - '{{ supervisor_home }}/conf.d'
     - '{{ supervisor_home }}/logs'
-    - '{{ supervisor_link|dirname }}'
 
 - name: installing supervisor configuration
   template: src=supervisord.conf.j2
@@ -29,7 +28,7 @@
       dest: '{{ bin_dir }}/supervisord'
 
 - name: setting up supervisor (optional) symlink
-  when: supervisor_link is defined
+  when: supervisor_link != False
   file: src={{ supervisor_home }}
         dest={{ supervisor_link }}
         state=link

@@ -10,8 +10,7 @@
         state=directory
   with_items:
     - '{{ bin_dir }}'
-    - '{{ supervisor_home }}/conf.d'
-    - '{{ supervisor_home }}/logs'
+    - '{{ supervisor_config_dir }}'
 
 - name: installing supervisor configuration
   template: src=supervisord.conf.j2
@@ -36,7 +35,7 @@
 - name: installing supervisor http server
   when: supervisor_http
   template: src=supervisor-http.ini.j2
-            dest={{ supervisor_home }}/conf.d/supervisor-http.ini
+            dest={{ supervisor_config_dir }}/supervisor-http.ini
             mode=754
 
 - name: checking if supervisord is running

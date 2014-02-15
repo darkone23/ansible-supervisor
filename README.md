@@ -37,6 +37,6 @@ Or you can just let the [defaults](https://github.com/eggsby/ansible-supervisor/
 
  See [supervisord](http://supervisord.org/) and the ansible [supervisorctl module](http://www.ansibleworks.com/docs/modules.html#supervisorctl) for more information.
 
-[TODO.md](https://github.com/eggsby/ansible-supervisor/blob/master/TODO.md)
+[Issues](https://github.com/eggsby/ansible-supervisor/issues)
 
 Enjoy

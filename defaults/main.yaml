@@ -1,4 +1,4 @@
-supervisor_version: 3.0
+supervisor_version: 3.1.3
 supervisor_virtualenv: '~/.virtualenvs/supervisor'
 
 supervisor_home: '{{ supervisor_virtualenv }}/etc/supervisor'
@@ -23,5 +23,3 @@ supervisor_http_auth: off
 #   password: bar
 
 pip_args: off # --index-url=http://my.custom.pypi/"
-
-super_args: 'supervisorctl_path={{ supervisorctl_path }} config={{ supervisor_config }}'

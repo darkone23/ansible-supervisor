@@ -26,6 +26,10 @@
     - src: supervisord.sh.j2
       dest: '{{ bin_dir }}/supervisord'
 
+- name: creating (optional) link parent dir
+  when: supervisor_link != False
+  file: path={{ supervisor_link|dirname }} state=directory
+
 - name: setting up supervisor (optional) symlink
   when: supervisor_link != False
   file: src={{ supervisor_home }}

@@ -3,7 +3,7 @@
        version={{ supervisor_version }}
        virtualenv={{ supervisor_virtualenv }}
        use_mirrors=no
-       {% if pip_args %} extra_args={{ pip_args }} {% endif %}
+       {% if pip_args %} "extra_args={{ pip_args }}" {% endif %}
 
 - name: ensuring required supervisor directories
   file: path={{ item }}

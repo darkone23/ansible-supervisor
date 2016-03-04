@@ -4,6 +4,8 @@
        virtualenv={{ supervisor_virtualenv }}
        use_mirrors=no
        extra_args="{% if pip_args %}{{ pip_args }}{% endif %}"
+  tags:
+    - supervisor
 
 - name: ensuring required supervisor directories
   file: path={{ item }}
@@ -11,10 +13,14 @@
   with_items:
     - '{{ bin_dir }}'
     - '{{ supervisor_config_dir }}'
+  tags:
+    - supervisor
 
 - name: installing supervisor configuration
   template: src=supervisord.conf.j2
             dest={{ supervisor_config }}
+  tags:
+    - supervisor
 
 - name: installing wrapper scripts
   template: src={{ item.src }}
@@ -25,30 +31,42 @@
       dest: '{{ bin_dir }}/supervisorctl'
     - src: supervisord.sh.j2
       dest: '{{ bin_dir }}/supervisord'
+  tags:
+    - supervisor
 
 - name: creating (optional) link parent dir
   when: supervisor_link != False
   file: path={{ supervisor_link|dirname }} state=directory
+  tags:
+    - supervisor
 
 - name: setting up supervisor (optional) symlink
   when: supervisor_link != False
   file: src={{ supervisor_home }}
         dest={{ supervisor_link }}
         state=link
+  tags:
+    - supervisor
 
 - name: installing supervisor http server
   when: supervisor_http
   template: src=supervisor-http.ini.j2
             dest={{ supervisor_config_dir }}/supervisor-http.ini
             mode=754
+  tags:
+    - supervisor
 
 - name: checking if supervisord is running
   shell: pgrep -u {{ ansible_user_id }} supervisor
   ignore_errors: on
   changed_when: off
   register: supervisor_running
+  tags:
+    - supervisor
 
 - name: running supervisord
   shell: chdir={{ supervisor_home }}
          {{ supervisord_path }} -c {{ supervisor_config }}
   when: supervisor_running|failed
+  tags:
+    - supervisor
